@@ -11,7 +11,7 @@ WORKDIR /app
 # && apt-get purge gcc git -y \
 # && apt-get clean
 
-RUN pip install autoremove-torrents
+RUN apt-get update && apt-get install cron -y -q && pip install autoremove-torrents
 
 ADD cron.sh /usr/bin/cron.sh
 RUN chmod +x /usr/bin/cron.sh
